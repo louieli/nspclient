@@ -1,0 +1,35 @@
+{
+  "author": {
+    "name": "louieli",
+    "email": "yafeilee@qq.com"
+  },
+  "name": "nspclient",
+  "description": "华为网盘SDK,用于调用华为网盘开放平台服务",
+  "version": "0.0.1",
+  "homepage": "www.dbank.com",
+  "repository": {
+    "url": "www.github.com"
+  },
+  "main": "nspclient.js",
+  "dependencies": {
+    "bunyan": "0.6.8"
+  },
+  "devDependencies": {},
+  "optionalDependencies": {},
+  "engines": {
+    "node": "*"
+  },
+  "_npmUser": {
+    "name": "louieli",
+    "email": "yafeilee@qq.com"
+  },
+  "_id": "nspclient@0.0.1",
+  "_engineSupported": true,
+  "_npmVersion": "1.1.18",
+  "_nodeVersion": "v0.6.15",
+  "_defaultsLoaded": true,
+  "dist": {
+    "shasum": "c2c0aa4991a985b9e6f2a0d71895e2e0168fa671"
+  },
+  "_from": "nspclient/"
+}
