@@ -2,7 +2,7 @@
  * @module nspclient
  * @fileoverview NSPClient for nodejs
  * @version v0.1
- * @author yafeilee@qq.com
+ * @author yafei.gg@gmail.com
  * @Copyright © 2009 - 2012 DBank网盘 All Rights Reserved
  */
 
