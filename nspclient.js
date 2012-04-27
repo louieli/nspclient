@@ -67,7 +67,7 @@ var NSPClient = function(options){
      *        {Function(data)} success 成功回调函数,data为接口返回内容
      * @return undefined
      */
-    NSPClient.prototype.service = function(order,params,success){
+    NSP.service = function(order,params,success){
         if(arguments.length === 2){
             success = arguments[1];
             var params = {};
