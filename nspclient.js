@@ -14,6 +14,7 @@
  *      appid | sid:'xxx',
  *      appsecret | usersecret:'xxx',
  *      log: 'xxx' //optional
+ *      timeout: 'xxx' //optional,default 2s
  *      }
  */
 var NSPClient = function(options){
@@ -27,6 +28,7 @@ var NSPClient = function(options){
     NSP.AppSecret = options.appsecret;
     NSP.Sid = options.sid;
     NSP.UserSecret = options.usersecret;
+    NSP.timeout = options.timeout || 2000;
     //开启log
     if(options.log){
         var Logger = require('bunyan');
@@ -96,7 +98,7 @@ var NSPClient = function(options){
         };
         options.path += '?' + NSP.genQueryString(params,secret);
         //NSP.log && NSP.log.info({"options": options,"params": params},order);
-        NSP.http.get(options,function(res){
+        var req = NSP.http.get(options,function(res){
             var data =''
             res.on('data',function(chunk){
                 data += chunk;
@@ -116,6 +118,18 @@ var NSPClient = function(options){
             });
         }).on('error',function(e){
             NSP.log && NSP.log.error('problem with request:' + e.message);
+        });
+        req.setTimeout(NSP.timeout,function(){
+            req.abort();
+            success("timeout");
+            NSP.log && NSP.log.error({
+                "request": {
+                    "host": options.host,
+                    "port": options.port,
+                    "url":  options.path,
+                    "params": params
+                }
+            },'timeout');
         });
     };
 };
