@@ -5,7 +5,7 @@
   },
   "name": "nspclient",
   "description": "华为网盘SDK,用于调用华为网盘开放平台服务",
-  "version": "0.0.5",
+  "version": "0.0.7",
   "homepage": "http://open.dbank.com",
   "repository": {
       "type": "git",
@@ -13,7 +13,7 @@
   },
   "main": "nspclient.js",
   "dependencies": {
-    "bunyan": "0.6.8"
+    "bunyan": "*"
   },
   "devDependencies": {},
   "optionalDependencies": {},
