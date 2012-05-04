@@ -116,10 +116,12 @@ var NSPClient = function(options){
                     "response": jsondata
                 },order);
             });
+            clearTimeout(req);
         }).on('error',function(e){
             NSP.log && NSP.log.error('problem with request:' + e.message);
+            clearTimeout(req);
         });
-        req.setTimeout(NSP.timeout,function(){
+        var onTimeout = function(){
             req.abort();
             success("timeout");
             NSP.log && NSP.log.error({
@@ -130,7 +132,11 @@ var NSPClient = function(options){
                     "params": params
                 }
             },'timeout');
-        });
+        }
+        var clearTimeout = function(req){
+            req.socket.removeListener('timeout',onTimeout);
+        };
+        req.setTimeout(NSP.timeout,onTimeout);
     };
 };
 
